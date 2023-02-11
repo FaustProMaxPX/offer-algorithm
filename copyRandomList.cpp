@@ -14,12 +14,18 @@ using namespace std;
 // 还有一个 random 指针指向链表中的任意节点或者 null
 
 /*
-思路：
 本题和普通的链表复制的区别在于random指向的目标可能还没有被创建
 
+思路1：
 一种比较容易想到的方法是使用哈希表，哈希表的键值对是<原节点地址，复制节点地址>
 每次复制之前都先在哈希表中查询对应节点是否已经复制完成，如果复制好就直接使用对应的复制节点地址，如果没有就进行复制
 本质上算是一种回溯法
+
+思路2：
+另一种方法基于拼接于拆分，仍然分两步走，首先处理next节点，再处理random节点
+首先将原始链表除random节点以外的部分全部拷贝一份，不过这次将复制的节点直接添加在原节点之后。A->B 变成 A->A'->B->B'
+接下来复制random节点，我们以节点A为例，假设它的random节点指向节点B，那么A'节点只需要通过A的random节点再往后移动一次就能获取到B'节点
+最后将两张链表拆分开来
 */
 
 class Node {
@@ -62,6 +68,44 @@ public:
         // 如果该节点已经复制完成，直接返回
         return existNodes.at(head);
     }
+
+    Node* copyRandomList0(Node* head) {
+        if (head == nullptr) return nullptr;
+        Node* node = head;
+        // 将复制节点追加在原节点之后
+        while (node != nullptr) {
+            Node* t = new Node(node->val);
+            Node* next = node->next;
+            t->next = node->next;
+            node->next = t;
+            node = next;
+        }
+        node = head;
+        // 设置random节点
+        while (node != nullptr) {
+            Node* copy_node = node->next;
+            if (node->random != nullptr) {
+                copy_node->random = node->random->next;
+            }
+            node = copy_node->next;
+        }
+        // 拆分链表
+        Node* copy_head = head->next;
+        Node* copy_node = copy_head;
+        node = head;
+        while (node != nullptr) {
+            node->next = copy_node->next;
+            node = node->next;
+            if (node == nullptr) {
+                copy_node->next = nullptr;
+                break;
+            } else {
+                copy_node->next = node->next;
+                copy_node = copy_node->next;
+            }
+        }
+        return copy_head;
+    }
 };
 
 Node* createList(vector<int> vals, vector<int> randoms) {
@@ -92,9 +136,10 @@ Node* createList(vector<int> vals, vector<int> randoms) {
 }
 
 int main(int argc, char const *argv[]) {
-    Node* head = createList({7, 13, 11, 10, 1}, {-1, 0, 4, 2, 0});
+    // Node* head = createList({7, 13, 11, 10, 1}, {-1, 0, 4, 2, 0});
+    Node* head = createList({1}, {0});
     Solution s;
-    Node* copy_head = s.copyRandomList(head);
+    Node* copy_head = s.copyRandomList0(head);
     int cnt = 0;
     while (head != nullptr) {
         cout << "node" << cnt++ << " :" << "\n";
