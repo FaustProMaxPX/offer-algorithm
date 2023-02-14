@@ -13,3 +13,5 @@
 8. findRepeatNumber: 查找重复的数字 （排序）（哈希）
 9. search: 统计一个数字在排序数组中出现的次数 （二分）
 10. missingNumber: 查找缺失的数字 （二分）
+11. findIn2DArray: 判断二维数组中是否含有目标值 （二叉搜索树，矩阵）
+12. minArray: 旋转数组中的最小值 （二分）
