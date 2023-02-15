@@ -15,3 +15,7 @@
 10. missingNumber: 查找缺失的数字 （二分）
 11. findIn2DArray: 判断二维数组中是否含有目标值 （二叉搜索树，矩阵）
 12. minArray: 旋转数组中的最小值 （二分）
+13. firstUniqChar: 找出字符串第一个只出现一次的字符 （哈希）
+14. levelOrder: 从上到下打印二叉树 （树）（层序遍历）
+15. levelOrder2: 层序遍历，一层一层输出 （树）（层序遍历）
+16. levelOrder3: 层序遍历，之字形输出 （树）（层序遍历）
