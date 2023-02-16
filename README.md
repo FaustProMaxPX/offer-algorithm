@@ -19,3 +19,6 @@
 14. levelOrder: 从上到下打印二叉树 （树）（层序遍历）
 15. levelOrder2: 层序遍历，一层一层输出 （树）（层序遍历）
 16. levelOrder3: 层序遍历，之字形输出 （树）（层序遍历）
+17. isSubstructure: 树的子结构 （树）
+18. mirrorTree: 二叉树的镜像 （树）
+19. isSymmetric: 对称的二叉树 （树）
