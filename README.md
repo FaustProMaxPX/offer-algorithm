@@ -22,3 +22,6 @@
 17. isSubstructure: 树的子结构 （树）
 18. mirrorTree: 二叉树的镜像 （树）
 19. isSymmetric: 对称的二叉树 （树）
+20. fib: 斐波那契数列 （递归）（滑动窗口）
+21. numWays: 爬楼梯 （递归）（滑动窗口）
+22. maxProfit: 股票的最大利润 （dp）
