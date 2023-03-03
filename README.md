@@ -27,3 +27,5 @@
 22. maxProfit: 股票的最大利润 （dp）
 23. maxSubArray: 连续子数组的最大和 （dp）
 24. maxValue: 礼物的最大价值 （dp）
+25. lengthOfLongestSubstring: 最长不含重复字符的子字符串 （dp）
+26. 把数字翻译成字符串 （dp）
