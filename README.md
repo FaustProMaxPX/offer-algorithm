@@ -25,3 +25,5 @@
 20. fib: 斐波那契数列 （递归）（滑动窗口）
 21. numWays: 爬楼梯 （递归）（滑动窗口）
 22. maxProfit: 股票的最大利润 （dp）
+23. maxSubArray: 连续子数组的最大和 （dp）
+24. maxValue: 礼物的最大价值 （dp）
